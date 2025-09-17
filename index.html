@@ -62,15 +62,50 @@
     @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     @keyframes fadeUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    #about { background: #fff; border-radius: 10px; padding: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .about-container { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
-    .about-text { flex: 1; font-size: 1.1rem; line-height: 1.6; animation: fadeIn 1.5s ease-in-out; }
-    .about-images { flex: 1; display: flex; gap: 15px; }
-    .about-images img { width: 48%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.4s; }
-    .about-images img:hover { transform: scale(1.05); }
-    #spare-parts { background: #fff; border-radius: 10px; padding: 50px; margin-top: 40px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); animation: zoomIn 1s ease-in-out; }
-    #spare-parts h2 { color: #d80027; margin-bottom: 15px; }
-    #spare-parts p { font-size: 1.1rem; margin-bottom: 20px; }
+
+    /* 🔹 About Section Full Screen Video */
+    #about {
+      position: relative;
+      padding: 0;
+      min-height: 100vh;   /* Full screen height */
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    #about video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    #about::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5); /* dark overlay */
+      z-index: 0;
+    }
+    #about h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -90,19 +125,17 @@
     <a href="#contact" class="btn">Contact Us</a>
   </section>
 
-  <!-- About Section -->
+  <!-- About Section with Fullscreen Video Background -->
   <section id="about">
-    <h2>About Us</h2>
+    <video autoplay muted loop playsinline>
+      <source src="C:\Users\lenovo\OneDrive\Desktop\My Creation\videos\OnePlus_13s___Stronger._Smarter._Smaller.(1080p)(1).mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="about-container">
       <div class="about-text">
         <p>
-          Mahadev Enterprise is an official <b>OnePlus Authorized Service Center</b> located in Bapunagar, Ahmedabad.  
-          We provide complete mobile support including warranty, out-of-warranty repairs, spare parts replacement, software updates, and technical assistance with certified technicians.
+ Mahadev Enterprise is an official <b>OnePlus Authorized Service Center</b> located in Bapunagar, Ahmedabad. We provide complete mobile support including warranty, out-of-warranty repairs, spare parts replacement, software updates, and technical assistance with certified technicians.
         </p>
-      </div>
-      <div class="about-images">
-        <img src="C:\Users\lenovo\OneDrive\Desktop\JP\My Website\123.jpg" alt="Technician repairing mobile">
-        <img src="C:\Users\lenovo\OneDrive\Desktop\JP\My Website\repair.jpg" alt="Mobile service repair">
       </div>
     </div>
   </section>
@@ -122,12 +155,13 @@
         <p>Fast and genuine OnePlus battery replacement services.</p>
       </div>
       <div class="card">
-        <img src="C:\Users\lenovo\OneDrive\Desktop\JP\My Website\13SSS.webp" alt="Software Support">
+        <img src="https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-ace-2-pro-1.jpg" alt="Software Support">
         <h3>Software Support</h3>
         <p>System updates, bug fixes, and OS recovery.</p>
       </div>
       <div class="card">
-        <img src="C:\Users\lenovo\OneDrive\Desktop\JP\My Website\2312.jpg" alt="Warranty Claims">
+        <img src="https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-12r-1.jpg
+"alt="Warranty Claims">
         <h3>Warranty Claims</h3>
         <p>Official OnePlus warranty services for eligible devices.</p>
       </div>
@@ -157,3 +191,4 @@
   </footer>
 </body>
 </html>
+
